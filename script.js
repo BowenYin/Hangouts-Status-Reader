@@ -1,13 +1,9 @@
 window.addEventListener("click", function() {
-if (window.self==window.top) {
-console.log("top");
 	window.addEventListener("message", function(event) {
-	if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1) return;
+	if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1)
+		return;
 	document.getElementsByClassName("Gp")[0].contentWindow.postMessage(event.data, "https://apis.google.com");
 }, false);
-}
-else {
-console.log("else");
 	var list=[];
 document.addEventListener("mousemove", function() {
 	for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
@@ -17,8 +13,8 @@ document.addEventListener("mousemove", function() {
 	parent.postMessage(list, "https://mail.google.com");
 	list=[];
 }, false);
-	
-	function hovercard(event) {
+
+function hovercard(event) {
 	for (var i=0; i<event.data.length/2; i++) {
 		var index=event.data.length/2+i;
 		var status='<div><div class="vta">'+event.data[i].toLowerCase()+"<wbr>@students.harker.org</div></div>"+event.data[index];
@@ -44,5 +40,4 @@ window.addEventListener("message", function(event) {
 	setTimeout(function() {hovercard(event)}, 750);
 	setTimeout(function() {hovercard(event)}, 1500);
 }, false);
-}
 });
