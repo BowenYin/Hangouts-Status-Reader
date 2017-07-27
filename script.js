@@ -19,7 +19,6 @@ function hovercard(list) {
 	}
 }
 var list=[];
-console.log("cool");
 document.addEventListener("mousemove", function() {
 	for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
 	list.push(document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").slice(0, document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").indexOf("@")));
