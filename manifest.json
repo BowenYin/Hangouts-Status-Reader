@@ -1,0 +1,11 @@
+{
+	"manifest_version": 2,
+	
+	"name": "Hangouts Status Reader",
+	"description": "Allows you to read Google Hangouts statuses directly in the contact info box.",
+	"version": "1.0",
+
+	"permissions": [
+	"https://mail.google.com/"
+	]
+}
