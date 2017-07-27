@@ -4,15 +4,16 @@
 	"name": "Hangouts Status Reader",
 	"description": "Allows you to read Google Hangouts statuses directly in the contact info box.",
 	"version": "1.0",
-
+	
+	"permissions": [
+		"https://mail.google.com/*"
+	],
+	
 	"content_scripts": [
 		{
 			"matches": ["https://mail.google.com/*"],
-			"js": ["script.js"]
+			"js": ["script.js"],
+			"all-frames": true
     	}
-	],
-	
-	"permissions": [
-	"https://*.google.com/*"
 	]
 }
