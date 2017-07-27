@@ -13,6 +13,6 @@
 	],
 	
 	"permissions": [
-	"https://mail.google.com/*"
+	"https://*.google.com/*"
 	]
 }
