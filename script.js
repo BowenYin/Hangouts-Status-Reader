@@ -1,10 +1,13 @@
-if (window.self=window.top) {
+window.addEventListener("click", function() {
+if (window.self==window.top) {
+console.log("top");
 	window.addEventListener("message", function(event) {
 	if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1) return;
 	document.getElementsByClassName("Gp")[0].contentWindow.postMessage(event.data, "https://apis.google.com");
 }, false);
 }
 else {
+console.log("else");
 	var list=[];
 document.addEventListener("mousemove", function() {
 	for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
@@ -42,3 +45,4 @@ window.addEventListener("message", function(event) {
 	setTimeout(function() {hovercard(event)}, 1500);
 }, false);
 }
+});
