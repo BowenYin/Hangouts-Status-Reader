@@ -1,4 +1,5 @@
 window.addEventListener("click", function() {
+	console.log(window.self);
 	window.addEventListener("message", function(event) {
 	if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1)
 		return;
@@ -6,6 +7,7 @@ window.addEventListener("click", function() {
 }, false);
 	var list=[];
 document.addEventListener("mousemove", function() {
+	console.log("mousemove");
 	for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
 	list.push(document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").slice(0, document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").indexOf("@")));
 	for (var j=0; j<document.getElementsByClassName("HHWV CRO0lc").length; j++)
@@ -15,6 +17,7 @@ document.addEventListener("mousemove", function() {
 }, false);
 
 function hovercard(event) {
+	console.log("hovercard");
 	for (var i=0; i<event.data.length/2; i++) {
 		var index=event.data.length/2+i;
 		var status='<div><div class="vta">'+event.data[i].toLowerCase()+"<wbr>@students.harker.org</div></div>"+event.data[index];
@@ -35,6 +38,7 @@ function hovercard(event) {
 	}
 }
 window.addEventListener("message", function(event) {
+	console.log("message");
 	if (event.origin !== "https://mail.google.com" || event.data.indexOf(':".."}') != -1) return;
 	setTimeout(function() {hovercard(event)}, 500);
 	setTimeout(function() {hovercard(event)}, 750);
