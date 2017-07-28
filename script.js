@@ -1,5 +1,6 @@
 // TOP Frame
 if (window.self===window.top) {
+	console.log("top");
 	window.addEventListener("message", function(event) {
 		if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1)
 			return;
