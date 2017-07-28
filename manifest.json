@@ -7,23 +7,27 @@
 
 	"permissions": [
 		"https://mail.google.com/*",
+		"https://hangouts.google.com/*",
+		"https://apis.google.com/*",
 		"tabs",
 		"activeTab"
 	],
 	"content_scripts": [
       {
-        "all_frames": true,
+		"all_frames": true,
         "js": [
           "script.js"
         ],
         "match_about_blank": true,
         "matches": [
-          "https://mail.google.com/*"
+          "https://mail.google.com/*",
+		  "https://hangouts.google.com/*",
+		  "https://apis.google.com/*"
         ]
       }
-  ],
-	"background": {
-	    "scripts": ["background.js"],
-	    "persistent": false
-	}
+	],
+  	"background": {
+  	    "scripts": ["background.js"],
+  	    "persistent": true
+  	}
 }
