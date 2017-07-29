@@ -25,9 +25,5 @@
 		  "https://apis.google.com/*"
         ]
       }
-	],
-  	"background": {
-  	    "scripts": ["background.js"],
-  	    "persistent": true
-  	}
+	]
 }
