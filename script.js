@@ -1,13 +1,16 @@
 // TOP Frame
 if (window.self===window.top) {
+	console.log("top");
 	window.addEventListener("message", function(event) {
 		if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1)
 			return;
-		document.getElementsByClassName("Gp")[0].contentWindow.postMessage(event.data, "https://apis.google.com");
+		if (document.getElementsByClassName("Gp")[0] != undefined)
+			document.getElementsByClassName("Gp")[0].contentWindow.postMessage(event.data, "https://apis.google.com");
 	}, false);
 }
 // WBLH0-0 (frame2)
-if (document.getElementsByClassName("HHWV CRO0lc")[0] != undefined) {
+else if (document.getElementsByClassName("HHWV CRO0lc")[0] != undefined) {
+	console.log("frame2");
 	var list = [];
 	document.addEventListener("mousemove", function() {
 		for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
@@ -19,7 +22,8 @@ if (document.getElementsByClassName("HHWV CRO0lc")[0] != undefined) {
 	}, false);
 }
 // HOVERCARD Frame
-if (document.getElementById("js") != null) {
+else if (document.getElementById("js") != null) {
+	console.log("hovercard");
 	function hovercard(event) {
 		for (var i=0; i<event.data.length/2; i++) {
 			var index = event.data.length/2 + i;
@@ -47,4 +51,7 @@ if (document.getElementById("js") != null) {
 		setTimeout(function() {hovercard(event)}, 750);
 		setTimeout(function() {hovercard(event)}, 1500);
 	}, false);
+}
+else {
+	console.log("else");
 }
