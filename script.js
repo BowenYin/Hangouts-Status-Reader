@@ -1,6 +1,5 @@
 // TOP Frame
 if (window.self===window.top) {
-	console.log("top");
 	window.addEventListener("message", function(event) {
 		if (event.origin !== "https://hangouts.google.com" || event.data.indexOf(",null]") != -1)
 			return;
@@ -9,26 +8,26 @@ if (window.self===window.top) {
 	}, false);
 }
 // WBLH0-0 (frame2)
-else if (document.getElementsByClassName("HHWV CRO0lc")[0] != undefined) {
-	console.log("frame2");
-	var list = [];
-	document.addEventListener("mousemove", function() {
-		for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
-		list.push(document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").slice(0, document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").indexOf("@")));
-		for (var j=0; j<document.getElementsByClassName("HHWV CRO0lc").length; j++)
-		list.push(document.getElementsByClassName("HHWV CRO0lc")[j].innerHTML);
-		parent.postMessage(list, "https://mail.google.com");
-		list = [];
-	}, false);
-}
+setTimeout(function() {
+	if (document.getElementsByClassName("kgwWAf")[0] != undefined) {
+		var list = [];
+		document.addEventListener("mousemove", function() {
+			for (var i=0; i<document.getElementsByClassName("HfhnEf").length; i++)
+			list.push(document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").slice(0, document.getElementsByClassName("HfhnEf")[i].getAttribute("hovercard-email").indexOf("@")));
+			for (var j=0; j<document.getElementsByClassName("HHWV CRO0lc").length; j++)
+			list.push(document.getElementsByClassName("HHWV CRO0lc")[j].innerHTML);
+			parent.postMessage(list, "https://mail.google.com");
+			list = [];
+		}, false);
+	}
+}, 300);
 // HOVERCARD Frame
-else if (document.getElementById("js") != null) {
-	console.log("hovercard");
+if (document.getElementById("js") != null) {
 	function hovercard(event) {
 		for (var i=0; i<event.data.length/2; i++) {
 			var index = event.data.length/2 + i;
 			var status = '<div><div class="vta">' + event.data[i].toLowerCase() + "<wbr>@students.harker.org</div></div>" + event.data[index];
-			if (document.getElementsByClassName("vta")[0].innerHTML.indexOf(event.data[i].toLowerCase()) != -1) {
+			if (document.getElementsByClassName("vta")[0] != undefined && document.getElementsByClassName("vta")[0].innerHTML.indexOf(event.data[i].toLowerCase()) != -1) {
 				event.data[index] = event.data[index].replace(/class="Xx" tabindex="-1" dir="ltr"/g, 'class="mna"');
 				event.data[index] = event.data[index].replace(/<span data-emo="/g, "");
 				while (event.data[index].indexOf(' vm" style="display:inline-block;"></div') != -1)
@@ -49,9 +48,6 @@ else if (document.getElementById("js") != null) {
 			return;
 		setTimeout(function() {hovercard(event)}, 500);
 		setTimeout(function() {hovercard(event)}, 750);
-		setTimeout(function() {hovercard(event)}, 1500);
+		setTimeout(function() {hovercard(event)}, 1250);
 	}, false);
-}
-else {
-	console.log("else");
 }
