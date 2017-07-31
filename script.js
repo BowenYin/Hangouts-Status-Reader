@@ -48,8 +48,6 @@ if (document.getElementById("js") != null) {
 			return;
 		setTimeout(function() {hovercard(event)}, 500);
 		setTimeout(function() {hovercard(event)}, 750);
-		//setTimeout(function() {hovercard(event)}, 1000);
 		setTimeout(function() {hovercard(event)}, 1250);
-		//setTimeout(function() {hovercard(event)}, 1500);
 	}, false);
 }

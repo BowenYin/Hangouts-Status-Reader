@@ -8,9 +8,7 @@
 	"permissions": [
 		"https://mail.google.com/*",
 		"https://hangouts.google.com/*",
-		"https://apis.google.com/*",
-		"tabs",
-		"activeTab"
+		"https://apis.google.com/*"
 	],
 	"content_scripts": [
       {
